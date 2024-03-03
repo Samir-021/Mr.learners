@@ -1,0 +1,196 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-color:blanchedalmond;
+}
+.navbar{
+    width: 100%;
+    border-radius: 20px;
+    background-color: #fff;
+}
+.navbar ul{
+    margin: 0;
+    height: 60px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    list-style: none;
+    align-items: center;
+}
+.navbar a{
+    text-decoration: none;
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: larger;
+}
+.navbar button{
+    border: none;
+    padding: 7px 13px;
+    float: right;
+    font-size: 13.5px;
+}
+.search{
+    padding: 7px;
+    border: none;
+}
+.navbar li a {
+    position: relative;
+    &:after {
+        content: "";
+        position: absolute;
+        left: 0;
+        border-radius: 5px;
+        bottom: -4px;
+        width: 100%;  
+        height: 3px;
+        background-color: #222;
+        transform: scaleX(0); 
+        transition: transform 0.3s ease;
+    }
+    &:hover:after {
+        transform: scaleX(1);
+    }
+}
+.main{
+    width: 100%;
+    display: flex;
+    height: 790px;
+}
+.Main-content{
+    display: flex;
+    flex-wrap:wrap;
+    justify-content: center;
+    justify-content:space-evenly;
+    align-items: center;
+    width: 100%;
+    height: 99%;
+    border-bottom-right-radius: 4%;
+    background-color: #7fffd4;
+}
+.images{
+    width: 30%;
+    height: 70%;
+    border-radius: 80%;
+    background-size: cover;
+    block-size: auto;
+    aspect-ratio: 2/2;
+    background-image:url('https://i.postimg.cc/gJCHj98Z/Whats-App-Image-2024-02-27-at-8-49-12-PM.jpg');
+}
+.intro{
+    text-align: center;
+    font-size: 4rem;
+    font-family:'Times New Roman', Times, serif;
+    font-style: italic;
+}
+.sec-content{
+    height: 700px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 2% ;
+    text-align: center;
+    font-size: large;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color:rgb(134, 223, 224);
+}
+.container{
+    display: flex;
+    width: 100%;
+    height:90%;
+    background-color: rgb(136, 213, 216);
+    justify-content: space-around;
+    align-items: center;
+    font-size: 0.8rem;
+    line-height: 0.9;
+}
+.sec{
+    width: 21%;
+    height: 70%;
+    border-radius: 5%;
+    box-shadow: 42px 41px 14px 0px rgba(0,0,0,0.1);
+    background-color: #fff;
+}
+.con-img{
+    width: 100%;
+    height: 50%;
+    border-radius: 5%;
+    block-size: auto;
+    aspect-ratio: 1/0;
+    background-size: cover;
+}
+.project{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 600px;
+    text-align: center;
+    background-color:rgb(206, 226, 241);
+}
+.main-pro{
+    width: 75%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-content: space-around;
+    border-radius: 5%;
+    background-color: #416e6b;
+}
+.program{
+    width: 25%;
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 5%;
+    justify-content: center;
+    align-items: center;
+}
+.about{
+    height: 600px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    background-color:rgb(206, 226, 241);
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 140%;
+}
+.mycontain{
+    height: 80%;
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 20%;
+    background-color:#fff;
+    font-size: 70%;
+}
+.myself{
+    width: 40%;
+    height: auto;
+    border-radius: 10%;
+    font-style: oblique;
+    align-items: center;
+}
+.myimg{
+    width: 45%;
+    height: 40%;
+    float: left;
+    background-size: cover;
+}
+.contact{
+    width: 100%;
+    height: 500px;
+    color: #fff;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #222;
+    font-size:larger;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
