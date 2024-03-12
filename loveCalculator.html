@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>love check</title>
+</head>
+<body>
+    <div class="love">
+        <h2>Love calculator ❤</h2>
+        <label for="fName">Enter your name:</label>
+        <input type="text" id="fName"> 
+        <label for="sName">Enter your partner name:</label>
+        <input type="text" id="sName">
+        <button onclick="myFunction()">check it</button>
+        <p id="here" style="color: red;"></p>
+    </div>
+    <style>
+        .love{
+            margin: auto;
+            text-align: center;
+            width: 50vw;
+            height: 50vh;
+            display: flex;
+            font-size: 120%;
+            flex-direction: column;
+            gap: 3%;
+            align-items: center;
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+            background-color: #eee;
+        }
+    </style>
+    <script>
+        function myFunction(){
+            var first = document.getElementById('fName').value;
+            var sec = document.getElementById('sName').value;
+            var lovPer = Math.floor(Math.random()*101);
+            var display = document.getElementById('here');
+            display.innerHTML = `${first} and his' ${sec} love is ${lovPer}%❤️`
+            // display.innerHTML = this.first+ "and his" +this.sec+"love is" +this.lovPer+"%❤️";
+        }
+    </script>
+</body>
+</html>
