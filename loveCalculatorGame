@@ -16,14 +16,20 @@
         <p id="here" style="color: red;"></p>
     </div>
     <style>
+        body{
+            display: grid;
+            place-content: center;
+            height: 100vh;
+            background-color: #393939;
+        }
         .love{
-            margin: auto;
             text-align: center;
             width: 50vw;
             height: 50vh;
             display: flex;
             font-size: 120%;
             flex-direction: column;
+            border-radius: 30px;
             gap: 3%;
             align-items: center;
             box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
@@ -34,9 +40,14 @@
         function myFunction(){
             var first = document.getElementById('fName').value;
             var sec = document.getElementById('sName').value;
-            var lovPer = Math.floor(Math.random()*101);
-            var display = document.getElementById('here');
-            display.innerHTML = `${first} and his' ${sec} love is ${lovPer}%❤️`
+            if(first==sec){
+                alert("enter a different name sir");
+            }
+            else{
+                var lovPer = Math.floor(Math.random()*101);
+                var display = document.getElementById('here');
+                display.innerHTML = `${first} and his' ${sec} love is ${lovPer}%❤️`
+            }
             // display.innerHTML = this.first+ "and his" +this.sec+"love is" +this.lovPer+"%❤️";
         }
     </script>
