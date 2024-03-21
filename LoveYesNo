@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>love</title>
+</head>
+<body>
+    <div class="para">
+        <div class="box">
+            <div class="toggle">
+                <input class="toggle-input" type="checkbox" />
+                <div class="toggle-bg"></div>
+                <div class="toggle-switch">
+                  <div class="toggle-switch-figure"></div>
+                  <div class="toggle-switch-figureAlt"></div>
+                </div>
+              </div>
+            <h1><p class="paraTxt">Do you love me?"❤" </p></h1>
+            <button class="yes" onclick="myFunction()">Yes</button>
+            <button id="no">no</button>
+        </div>
+    </div>
+    <style>
+        .para{
+            position: relative;
+            border-radius: 20px;
+            margin: auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background-color: #fff;
+            box-shadow: rgba(240, 46, 170, 0.4) -5px 5px, rgba(240, 46, 170, 0.3) -10px 10px, rgba(240, 46, 170, 0.2) -15px 15px, rgba(240, 46, 170, 0.1) -20px 20px, rgba(240, 46, 170, 0.05) -25px 25px;   
+            height: 50vh;
+            width: 50vw;
+            border: 3px black dotted;
+        }
+        .paraTxt{
+            color: brown;
+        }
+        .yes{
+            width: 4vw;
+            height: 4vh;
+            color: #fff;
+            border-radius: 10px;
+            background-color: blue;
+        }
+        #no{
+            position: relative;
+            border-radius: 10px;
+            width: 4vw;
+            height: 4vh;
+            color: #fff;
+            background-color: red;
+        }
+        :root {
+        color-scheme: dark light;
+
+        &[data-theme="light"] {
+        color-scheme: light;
+      }
+
+        &[data-theme="dark"] {
+        color-scheme: dark;
+      }
+    }
+body {
+  display: grid;
+  place-content: center;
+  height: 100vh;
+}
+.toggle {
+  position: relative;
+  display: inline-block;
+  width: 100px;
+  padding: 4px;
+  border-radius: 40px;
+}
+.toggle-bg {
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  width: 100%;
+  height: 100%;
+  background-color: #c0e6f6;
+  border-radius: 40px;
+  border: 4px solid #81c0d5;
+  transition: all 0.1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.toggle-input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 1px solid red;
+  border-radius: 40px;
+  z-index: 2;
+  opacity: 0;
+}
+
+.toggle-switch {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  margin-left: 50px;
+  background-color: #f5eb42;
+  border: 4px solid #e4c74d;
+  border-radius: 50%;
+  transition: all 0.1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.toggle-switch-figure {
+  position: absolute;
+  bottom: -14px;
+  left: -50px;
+  display: block;
+  width: 80px;
+  height: 30px;
+  border: 8px solid #d4d4d2;
+  border-radius: 20px;
+  background-color: #fff;
+  transform: scale(0.4);
+  transition: all 0.12s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+  &::after {
+    content: "";
+    display: block;
+    position: relative;
+    top: -65px;
+    right: -42px;
+    width: 15px;
+    height: 15px;
+    border: 8px solid #d4d4d2;
+    border-radius: 100%;
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+    transform: rotateZ(70deg);
+    background-color: #fff;
+  }
+  &::before {
+    content: "";
+    display: block;
+    position: relative;
+    top: -25px;
+    right: -10px;
+    width: 30px;
+    height: 30px;
+    border: 8px solid #d4d4d2;
+    border-radius: 100%;
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+    transform: rotateZ(30deg);
+    background-color: #fff;
+  }
+}
+
+.toggle-switch-figureAlt {
+  content: "";
+  position: absolute;
+  top: 5px;
+  left: 2px;
+  width: 2px;
+  height: 2px;
+  background-color: #efeeda;
+  border-radius: 100%;
+  border: 4px solid #dee1c5;
+  box-shadow: 42px -7px 0 -3px #fcfcfc, 75px -10px 0 -3px #fcfcfc,
+    54px 4px 0 -4px #fcfcfc, 83px 7px 0 -2px #fcfcfc, 63px 18px 0 -4px #fcfcfc,
+    44px 28px 0 -2px #fcfcfc, 78px 23px 0 -3px #fcfcfc;
+  transition: all 0.12s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transform: scale(0);
+  &::before {
+    content: "";
+    position: absolute;
+    top: -6px;
+    left: 18px;
+    width: 7px;
+    height: 7px;
+    background-color: #efeeda;
+    border-radius: 100%;
+    border: 4px solid #dee1c5;
+  }
+}
+
+.toggle-input:checked {
+  ~ .toggle-switch {
+    margin-left: 0;
+    border-color: #dee1c5;
+    background-color: #fffdf2;
+  }
+
+  ~ .toggle-bg {
+    background-color: #484848;
+    border-color: #202020;
+  }
+
+  ~ .toggle-switch .toggle-switch-figure {
+    margin-left: 40px;
+    opacity: 0;
+    transform: scale(0.1);
+  }
+
+  ~ .toggle-switch .toggle-switch-figureAlt {
+    transform: scale(1);
+  }
+}
+    </style>
+    <script>
+        const no = document.getElementById('no');
+        function moveno(){
+            const maxwidth = 400;
+            const maxheight = 400;
+            const maxtop = 400;
+            const randomx = Math.floor(Math.random()*maxwidth);
+            const randomy = Math.floor(Math.random()*maxheight);
+            const randomt = Math.floor(Math.random()*maxtop);
+            no.style.left = randomx + 'px';
+            no.style.top = randomt + "px";
+            no.style.right = randomy + "px";
+        }
+        no.addEventListener("mouseenter", function(){
+                moveno();
+        });
+        function myFunction(){
+            alert("GOD ALSO LOVE YOU SON ❤");
+        }
+        const { matches: userPrefersDark } = window.matchMedia('(prefers-color-scheme: dark)');
+
+        const toggle = document.querySelector('.toggle-input');
+        toggle.checked = userPrefersDark;
+
+        toggle.addEventListener('change', (e) => {
+        const theme = e.target.checked ? 'dark' : 'light';
+        document.documentElement.dataset.theme = theme;
+      });
+    </script>
+</body>
+</html>
