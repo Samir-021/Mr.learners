@@ -10,16 +10,27 @@
 <body>
     <header>
         <nav class="navbar">
-            <ul>
+            <ul id="sidebar">
+                <li onclick="hide()"><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="59" viewBox="0 -960 960 960" width="24"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg></a></li>
                 <li><a href="#home">Home</a></li>
                 <li><a href="#skill">Skills</a></li>
                 <li><a href="#proj">Project</a></li>
                 <li><a href="#abt">About</a></li>
                 <li><a href="#cont">Contact Me</a></li>
-                <li>
+                <li><a href="#"></a></li>
+            </ul>
+            <ul>
+                <li><a href="#" style="color: yellowgreen;"><h4>Portfolio</h4></a></li>
+                <li class="hideonm"><a href="#home">Home</a></li>
+                <li class="hideonm"><a href="#skill">Skills</a></li>
+                <li class="hideonm"><a href="#proj">Project</a></li>
+                <li class="hideonm"><a href="#abt">About</a></li>
+                <li class="hideonm"><a href="#cont">Contact Me</a></li>
+                <li class="hideonm">
                     <input type="search" placeholder="search..." class="search">
                     <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
                 </a></li>
+                <li class="menu-btn" onclick="showsidebar()"><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg></a></li>
             </ul>
         </nav>
     </header>
@@ -122,5 +133,17 @@
             </fieldset>
         </form>
     </footer>
+    <script>
+        function showsidebar(){
+            const show = document.getElementById("sidebar")
+            show.style.display = "flex";
+            show.style.transform = "translateX(0)";
+        }
+        function hide(){
+            const hide = document.getElementById("sidebar")
+            hide.style.display = "none";
+            hide.style.transform = "translateX(100%)";
+        }
+    </script>
 </body>
 </html>
