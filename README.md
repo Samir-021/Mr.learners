@@ -1,4 +1,4 @@
-👋 Hi, I’m @Samir-adkhri
+👋 Hi, I’m Samir Adhikari.
 
 👀 I’m interested in web development, Java, and C programming.
 
