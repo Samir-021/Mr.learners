@@ -2,7 +2,7 @@
 
 👀 I’m interested in web development, Java, and C programming.
 
-🌱 I’m currently learning Java and C languages.
+🌱 I’m currently exploring Generative AI & DSA.
 
 💞️ I’m looking to collaborate on web development projects and open-source initiatives.
 
