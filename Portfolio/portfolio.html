@@ -110,25 +110,26 @@
             <li style="list-style: none;"><p><i class="fa-sharp fa-solid fa-phone"></i> PH.Num: +9779785460086</p></li>
             <li style="list-style: none;"><p><i class="fa-brands fa-linkedin"></i> linkedin: @xyzsamirac</p></li>
         </ul>
-        <form action="" class="form">
+        <form class="form" action="https://api.web3forms.com/submit" method="POST">
+            <input type="hidden" name="access_key" value="e59746f7-e311-4afd-bc70-7c089b17003e">
             <fieldset>
                 <legend>Form</legend>
                 <caption>Please let me know your personal Opinion</caption>
                 <table>
                     <tr>
                         <td><label for="name">Name:</label> </td>
-                        <td><input type="text" placeholder="Enter your name" id="name">
+                        <td><input type="text" placeholder="Enter your name" id="name" name="name">
                     </td>   
                     </tr>
                     <tr>
                         <td><label for="E-mail">E-mail:</label> </td>
-                        <td><input type="email" placeholder="enter u'r email.." id="E-mail"></td>
+                        <td><input type="email" placeholder="enter u'r email.." id="E-mail" name="email"></td>
                     </tr>
                     <tr>
                         <td><label for="optional">Optional msg:</label> </td>
                         <td><textarea name="optional" id="optional" cols="20" rows="5"></textarea></td>
                     </tr>
-                    <tr><td><input type="button" value="Submit"></td></tr>
+                    <tr><td><input type="submit" value="Submit"></td></tr>
                 </table>
             </fieldset>
         </form>
