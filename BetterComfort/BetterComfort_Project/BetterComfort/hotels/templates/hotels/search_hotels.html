@@ -1,0 +1,43 @@
+{% extends 'main.html' %}
+
+{% block title %}Search Results{% endblock %}
+
+{% block content %}
+<div id="results" class="container mt-4">
+
+    {% if query %}
+        <h2>Search Results for "{{ query }}"</h2>
+    {% else %}
+        <h2>Search Results</h2>
+    {% endif %}
+
+    {% if error_message %}
+        <p class="text-danger">{{ error_message }}</p>
+    {% endif %}
+
+    {% if fallback %}
+        <p class="text-muted">No exact matches found for "{{ query }}". Showing nearby hotels within {{ radius_used }} meters:</p>
+    {% elif exact_matches %}
+        <p>Exact matches found for "{{ query }}":</p>
+    {% elif no_results %}
+        <p class="text-muted">No hotels found within the maximum radius of {{ radius_used }} meters.</p>
+    {% endif %}
+
+    <div class="row">
+        {% for hotel in hotels %}
+            <div class="col-md-6 col-lg-4 mb-4">
+                <div class="card shadow-sm h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ hotel.name }}</h5>
+                        <p class="card-text">{{ hotel.address }}</p>
+                        <p class="card-text">{{ hotel.phone }}</p>
+                        <a href="{% url 'hotel_details' hotel.latitude hotel.longitude hotel.name %}?user_lat={{ request.session.user_lat }}&user_lon={{ request.session.user_lon }}&address={{ hotel.address|urlencode }}&phone={{ hotel.phone|urlencode }}" class="btn btn-primary">
+                            View Details
+                        </a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

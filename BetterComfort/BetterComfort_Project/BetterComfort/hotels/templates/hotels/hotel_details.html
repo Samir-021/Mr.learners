@@ -1,0 +1,73 @@
+{% extends 'main.html' %}
+
+{% block title %}Hotel Details{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center">
+        <h2>{{ name }}</h2>
+        <form method="POST" action="{% url 'save_favorite' %}">
+            {% csrf_token %}
+            <input type="hidden" name="name" value="{{ name }}">
+            <input type="hidden" name="latitude" value="{{ latitude }}">
+            <input type="hidden" name="longitude" value="{{ longitude }}">
+            <input type="hidden" name="address" value="{{ address }}">
+            <input type="hidden" name="phone" value="{{ phone }}">
+            <input type="hidden" name="user_lat" value="{{ user_lat }}">
+            <input type="hidden" name="user_lon" value="{{ user_lon }}">
+            {% if is_favorite %}
+                <button type="button" class="btn btn-success" disabled>Saved</button>
+            {% else %}
+                <button type="submit" class="btn btn-primary">Save as Favorite</button>
+            {% endif %}
+        </form>
+    </div>
+    <br>
+    <p><strong>Phone_Number:</strong>{{ phone }}</p>
+    <p>lat"{{latitude}}</p>
+    <p>lon"{{longitude}}</p>
+    <div id="map" style="height: 500px;"></div>
+
+        <p><strong>Average Rating:</strong> {{ average_rating|default:"No ratings yet" }}</p>
+        <h3>Reviews</h3>
+        {% for review in reviews %}
+            <div>
+                <p><strong>{{ review.user.username }}:</strong></p>
+                <p>Rating: {{ review.rating }}</p>
+                <p>{{ review.review_text }}</p>
+                <p><small>{{ review.created_at }}</small></p>
+            </div>
+        {% empty %}
+            <p>No reviews yet.</p>
+        {% endfor %}
+
+    <h3>Submit a Review</h3>
+    <form method="POST" action="{% url 'hotel_details' lat=latitude lon=longitude name=name %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Submit</button>
+    </form>
+</div>
+
+<script>
+        const userLatt = parseFloat("{{ user_lat|default:'NaN' }}");
+        const userLong = parseFloat("{{ user_lon|default:'NaN' }}");
+        const hotelLat = parseFloat("{{ latitude }}");
+        const hotelLon = parseFloat("{{ longitude }}");
+        const hotelName = "{{ name }}";
+
+        const map = L.map('map').setView([hotelLat, hotelLon], 13);
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        // Add user marker
+        if (!isNaN(userLatt) && !isNaN(userLong)) {
+            L.marker([userLatt, userLong]).addTo(map).bindPopup("Your Location").openPopup();
+        }
+
+        // Add hotel marker
+        L.marker([hotelLat, hotelLon]).addTo(map).bindPopup(hotelName);
+</script>
+{% endblock %}
